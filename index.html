@@ -1,346 +1,216 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>威远机械</title>
-    <style>
-        /* 基础样式重置 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            /* === 优化后的背景图片代码 === */
-            background-image: 
-                linear-gradient(rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.55)),
-                url('吊机.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            /* === 结束优化代码 === */
-        }
-        
-        /* 头部样式 */
-        header {
-            background-color: rgba(44, 62, 80, 0.95);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: white;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s;
-            font-weight: 500;
-        }
-        
-        nav ul li a:hover {
-            color: #3498db;
-        }
-        
-        /* 主要内容区域 */
-        .hero {
-            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(44, 62, 80, 0.1));
-            color: #2c3e50;
-            padding: 6rem 0 4rem 0;
-            text-align: center;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.7);
-            z-index: -1;
-        }
-        
-        .hero h1 {
-            font-size: 2.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            color: #555;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: #e74c3c;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: all 0.3s;
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        
-        .btn:hover {
-            background-color: #c0392b;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* 内容区域 */
-        .content-section {
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-            font-size: 2.2rem;
-            font-weight: 700;
-        }
-        
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-        
-        .feature-card {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .feature-card h3 {
-            color: #2c3e50;
-            margin-bottom: 1.2rem;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-        
-        .feature-card p {
-            color: #555;
-            line-height: 1.7;
-        }
-        
-        /* 页脚 */
-        footer {
-            background-color: rgba(44, 62, 80, 0.95);
-            color: white;
-            text-align: center;
-            padding: 2.5rem 0;
-            margin-top: 3rem;
-        }
-        
-        footer p {
-            margin: 0.5rem 0;
-        }
-        
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            nav ul {
-                margin-top: 1rem;
-                justify-content: center;
-                flex-wrap: wrap;
-            }
-            
-            nav ul li {
-                margin: 0.5rem 0.75rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero {
-                padding: 5rem 0 3rem 0;
-            }
-            
-            .features {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>威远重型吊装工程队｜10-50吨｜24小时响应</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<style>
+    :root{--main:#ff6b00;--blue:#0056b3;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Microsoft YaHei',Arial,sans-serif;background:#f8f9fa;color:#333;line-height:1.7;}
+    img{display:block;width:100%;}
+
+    /* 1. 开场视频英雄区 */
+    #hero{height:100vh;position:relative;overflow:hidden;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;}
+    #hero video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;}
+    #hero::after{content:'';position:absolute;inset:0;background:linear-gradient(45deg,rgba(0,0,0,0.7),rgba(0,0,0,0.4));}
+    .hero-content{position:relative;z-index:2;}
+    .hero-content h1{font-size:70px;font-weight:900;letter-spacing:5px;}
+    .hero-content p{font-size:24px;margin:20px 0;}
+    .btn{background:var(--main);color:#fff;padding:16px 40px;border-radius:50px;font-size:20px;text-decoration:none;box-shadow:0 8px 25px rgba(255,107,0,0.4);display:inline-block;}
+    .btn:hover{transform:translateY(-3px);}
+
+    h2{font-size:36px;color:var(--blue);text-align:center;margin:70px 0 50px;position:relative;font-weight:700;}
+    h2::after{content:'';width:80px;height:5px;background:var(--main);position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);}
+
+    /* 2. 实力数字 */
+    .stats{background:#222222;color:#fff;padding:80px 20px;text-align:center;}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px;max-width:1200px;margin:0 auto;}
+    .snum{font-size:52px;font-weight:900;color:var(--main);}
+
+    /* 3. 我们的装备 */
+    .fleet{padding:70px 20px;background:#fff;}
+    .fleet-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;max-width:1400px;margin:0 auto;text-align:center;}
+    .truck-item{background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,0.1);transition:0.4s;}
+    .truck-item:hover{transform:translateY(-12px);box-shadow:0 20px 40px rgba(0,0,0,0.18);}
+    .truck-item img{height:240px;object-fit:cover;transition:0.4s;}
+    .truck-item:hover img{transform:scale(1.08);}
+    .truck-item h3{margin:20px 0 10px;font-size:22px;color:var(--blue);}
+    .truck-item p{color:#666;font-size:15px;}
+
+    /* 4. 经典案例时间轴 */
+    .cases{background:#f8f9fa;padding:70px 20px;}
+    .timeline{max-width:1000px;margin:0 auto;position:relative;}
+    .timeline::before{content:'';position:absolute;left:50%;width:4px;height:100%;background:#ddd;transform:translateX(-50%);}
+    .case-item{margin:60px 0;position:relative;}
+    .case-item:nth-child(odd){text-align:right;padding-right:55%;}
+    .case-item:nth-child(even){text-align:left;padding-left:55%;}
+    .case-content{background:#fff;padding:25px;border-radius:12px;box-shadow:0 8px 25px rgba(0,0,0,0.1);}
+
+    /* 5. 专业团队 */
+    .team{background:#fff;padding:70px 20px;}
+    .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;max-width:1200px;margin:0 auto;text-align:center;}
+    .member img{border-radius:50%;border:6px solid #eee;transition:0.4s;width:180px;height:180px;object-fit:cover;margin:0 auto;}
+    .member:hover img{border-color:var(--main);}
+
+    /* 6. 30分钟响应流程 */
+    .flow{background:#111;color:#fff;padding:70px 20px;text-align:center;}
+    .flow-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;max-width:1000px;margin:0 auto;}
+    .step{background:var(--main);padding:30px;border-radius:15px;}
+
+    /* ★★★★★ 新增：服务理念（超有逼格版） ★★★★★ */
+    .philosophy{background:#fff;padding:90px 20px;text-align:center;}
+    .phil-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;max-width:1300px;margin:0 auto;}
+    .phil-item{background:linear-gradient(135deg,#fff 0%,#f9f9f9 100%);padding:40px 30px;border-radius:20px;
+               box-shadow:0 12px 35px rgba(0,0,0,0.1);transition:0.4s;position:relative;overflow:hidden;}
+    .phil-item::before{content:'';position:absolute;top:0;left:0;width:6px;height:100%;background:var(--main);}
+    .phil-item:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(255,107,0,0.15);}
+    .phil-item i{font-size:48px;color:var(--main);margin-bottom:20px;}
+    .phil-item h3{font-size:24px;margin:15px 0;color:var(--blue);}
+    .phil-item p{font-size:16px;color:#555;line-height:1.8;}
+
+    /* 7. 联系区 */
+    .contact{background:#333;color:#fff;padding:100px 20px;text-align:center;}
+    .wxqr{width:260px;height:260px;margin:30px auto;border:12px solid rgba(255,255,255,0.2);border-radius:20px;}
+
+    /* 悬浮双按钮（电话已统一） */
+    .float-bar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:999;display:flex;gap:15px;}
+    .fab{background:#ff6b00;color:#fff;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:0 5px 20px rgba(0,0,0,0.3);}
+    .fab.wechat{background:#09b83e;}
+
+    @media(max-width:768px){
+        .hero h1{font-size:42px;}
+        .case-item:nth-child(odd),.case-item:nth-child(even){padding:0 10px;text-align:center;}
+        .timeline::before{left:30px;}
+        .phil-grid{grid-template-columns:1fr;gap:30px;}
+    }
+</style>
 </head>
 <body>
-    <!-- 网站头部 -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">威远机械有限公司</div>
-                <nav>
-                    <ul>
-                        <li><a href="#home">首页</a></li>
-                        <li><a href="#about">关于我们</a></li>
-                        <li><a href="#services">服务项目</a></li>
-                        <li><a href="#contact">联系我们</a></li>
-                    </ul>
-                </nav>
+
+    <!-- 1. 视频英雄区 -->
+    <section id="hero">
+        <video autoplay muted loop playsinline poster="中联.jpeg">
+            <source src="开场视频.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>威远机械吊装</h1>
+            <p>10-50吨汽车吊 · 24小时响应</p>
+            <a href="tel:13802466042" class="btn">立即拨号 138-0246-6042</a>
+        </div>
+    </section>
+
+    <!-- 2. 实力数字 -->
+    <section class="stats">
+        <h2>实力见证</h2>
+        <div class="stats-grid">
+            <div><div class="snum" data-val="392100">0</div><p>累计吊装吨位</p></div>
+            <div><div class="snum" data-val="7842">0</div><p>完成工程项目</p></div>
+            <div><div class="snum" data-val="26">0</div><p>专业服务年限</p></div>
+            <div><div class="snum" data-val="30">0</div><p>平均响应时间(分钟)</p></div>
+        </div>
+    </section>
+
+    <!-- 3. 我们的装备 -->
+    <section class="fleet">
+        <h2>我们的装备</h2>
+        <div class="fleet-grid">
+            <div class="truck-item"><img src="25吨.jpg"><h3>中联ZTC160E451</h3><p>25吨汽车吊 · 主臂50米</p></div>
+            <div class="truck-item"><img src="200t.png"><h3>中联ZAT2000V</h3><p>重型汽车吊 · 超起配置</p></div>
+            <div class="truck-item"><img src="吊车3.jpg"><h3>三一SCC4000</h3><p>400吨履带吊 · 风电专用</p></div>
+        </div>
+    </section>
+
+    <!-- 4. 经典案例时间轴 -->
+    <section class="cases">
+        <h2>经典案例</h2>
+        <div class="timeline">
+            <div class="case-item"><div class="case-content"><h3>2025.04 楼顶吊装</h3><p>50吨主吊加装副臂吊装</p><img src="楼顶.jpg"></div></div>
+            <div class="case-item"><div class="case-content"><h3>2025.06 超高楼吊装</h3><p>500吨超起一次就位</p><img src="超起.jpg"></div></div>
+            <div class="case-item"><div class="case-content"><h3>2025.09 起重机转移</h3><p>将起重机吊至楼顶灵活作业</p><img src="小.jpg"></div></div>
+        </div>
+    </section>
+
+    <!-- 5. 专业团队 -->
+    <section class="team">
+        <h2>专业团队</h2>
+        <div class="team-grid">
+            <div class="member"><img src="特朗普.png"><p>庞师傅<br>26年吊龄</p></div>
+            <div class="member"><img src="普京.png"><p>灯师傅<br>32年吊龄</p></div>
+            <div class="member"><img src="张学友.png"><p>牛师傅<br>25年操作经验</p></div>
+        </div>
+    </section>
+
+    <!-- 6. 30分钟响应流程 -->
+    <section class="flow">
+        <h2>30分钟响应流程</h2>
+        <div class="flow-grid">
+            <div class="step"><h3>01 电话接单</h3><p>24小时电话接听</p></div>
+            <div class="step"><h3>02 现场勘查</h3><p>30分钟内到达</p></div>
+            <div class="step"><h3>03 方案报价</h3><p>电话立即报价</p></div>
+            <div class="step"><h3>04 立即作业</h3><p>设备随时待命</p></div>
+        </div>
+    </section>
+
+    <!-- ★ 新增：服务理念（客户看了直接放心） ★ -->
+    <section class="philosophy">
+        <h2>我们的服务理念</h2>
+        <div class="phil-grid">
+            <div class="phil-item">
+                <i class="fas fa-shield-alt"></i>
+                <h3>安全第一</h3>
+                <p>每一次吊装都严格执行国家安全规范<br>绝不以效率牺牲安全</p>
+            </div>
+            <div class="phil-item">
+                <i class="fas fa-clock"></i>
+                <h3>快速响应</h3>
+                <p>30分钟内到达现场<br>24小时随叫随到，绝不让您等</p>
+            </div>
+            <div class="phil-item">
+                <i class="fas fa-handshake"></i>
+                <h3>价格公道</h3>
+                <p>明码标价，绝不中途加价<br>让您明明白白消费</p>
+            </div>
+            <div class="phil-item">
+                <i class="fas fa-thumbs-up"></i>
+                <h3>客户至上</h3>
+                <p>您的满意就是我们的追求<br>每单复盘，持续改进服务</p>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- 主要内容区域 -->
-    <main>
-        <!-- 英雄区域 -->
-        <section class="hero" id="home">
-            <div class="container">
-                <h1>专业起重吊装服务专家</h1>
-                <p>威远机械 - 您信赖的起重工程合作伙伴</p>
-                <a href="#services" class="btn">查看服务项目</a>
-            </div>
-        </section>
+    <!-- 7. 联系我们 -->
+    <section class="contact">
+        <h2>立即联系我们</h2>
+        <p style="font-size:42px;color:#ff6b00;font-weight:900;margin:30px 0;">
+            <a href="tel:13802466042" style="color:#ff6b00;text-decoration:none;">138-0246-6042</a>
+        </p>
+        <p style="font-size:24px;margin:20px 0;">电话·微信同号　24小时在线</p>
+        <img src="二维码2.png" class="wxqr">
+    </section>
 
-        <!-- 关于区域 -->
-        <section class="content-section" id="about">
-            <div class="container">
-                <h2 class="section-title">关于威远机械</h2>
-                <div class="features">
-                    <div class="feature-card">
-                        <h3>企业使命</h3>
-                        <p>我们致力于为客户提供安全、高效、专业的起重吊装解决方案，涵盖大件设备搬运、广告牌拆卸、精密仪器吊装等全方位服务，确保每一个项目都精益求精。</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>专业团队</h3>
-                        <p>我们拥有一支经验丰富、技术精湛的吊装团队，所有操作人员持证上岗，配备国际知名品牌起重设备，为客户提供最专业、最可靠的技术服务支持。</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>发展愿景</h3>
-                        <p>成为广东地区领先的机械吊装服务品牌，通过持续创新和优质服务，为客户创造更大价值，推动行业安全标准和技术水平的不断提升。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <!-- 悬浮双按钮（电话已统一） -->
+    <div class="float-bar">
+        <a href="tel:13802466042" class="fab"><i class="fas fa-phone"></i></a>
+        <a href="weixin://" class="fab wechat"><i class="fab fa-weixin"></i></a>
+    </div>
 
-        <!-- 服务区域 -->
-        <section class="content-section" id="services">
-            <div class="container">
-                <h2 class="section-title">核心服务项目</h2>
-                <div class="features">
-                    <div class="feature-card">
-                        <h3>专业设备租赁</h3>
-                        <p>提供各类吊车设备租赁服务，包括汽车吊、随车吊等全系列机型。配备专业吊具和辅助设备，满足厂房建设、设备安装、市政工程等多样化需求。</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>一站式吊装施工</h3>
-                        <p>从现场勘察、方案设计到施工执行的全流程服务。专业团队负责设备定位、吊装作业、安全监控，严格执行行业安全规范，确保项目高效顺利完成。</p>
-                    </div>
-                    <div class="feature-card">
-                        <h3>技术保障服务</h3>
-                        <p>提供24小时设备技术支持、定期维护保养、应急故障处理等全方位保障。支持夜间施工、多机协同作业等特殊工况，为项目进度提供坚实保障。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- 网站页脚 -->
-    <footer id="contact">
-        <div class="container">
-            <p><strong>威远机械有限公司</strong></p>
-            <p>专业起重吊装服务 · 设备租赁 · 工程解决方案</p>
-            <p>联系电话：13802466042</p>
-            <p>服务热线：86768390</p>
-            <p>&copy; 2025 威远机械有限公司 版权所有</p>
-        </div>
-    </footer>
-
+    <!-- 数字动画 -->
     <script>
-        // 平滑滚动效果
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+        document.querySelectorAll('.snum').forEach(el=>{
+            const target = +el.getAttribute('data-val');
+            const observer = new IntersectionObserver(e=>{
+                if(e[0].isIntersecting){
+                    let i=0200;
+                    const t=setInterval(()=>{
+                        i += target/80;
+                        if(i>=target){el.innerText=target;clearInterval(t);}
+                        else el.innerText=Math.ceil(i);
+                    },20);
                 }
-            });
-        });
-
-        // 导航栏滚动效果
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.backgroundColor = 'rgba(44, 62, 80, 0.98)';
-                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
-            } else {
-                header.style.backgroundColor = 'rgba(44, 62, 80, 0.95)';
-                header.style.boxShadow = 'none';
-            }
+            },{threshold:0.5});
+            observer.observe(el);
         });
     </script>
 </body>
